@@ -11,8 +11,6 @@ import (
 	"testing"
 	"time"
 
-	"github.com/iancoleman/orderedmap"
-
 	"github.com/alecthomas/jsonschema/examples"
 
 	"github.com/stretchr/testify/require"
@@ -218,7 +216,7 @@ func (CustomSliceType) JSONSchemaType() *Type {
 type CustomMapType map[string]string
 
 func (CustomMapType) JSONSchemaType() *Type {
-	properties := orderedmap.New()
+	properties := NewProperties()
 	properties.Set("key", &Type{
 		Type: "string",
 	})
